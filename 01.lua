@@ -1,5 +1,5 @@
 local utils = require('utils')
-local dataPath = './inputs/q01.txt'
+local dataPath = './inputs/01.txt'
 
 local function isDigit(char)
     return char:match('%d') ~= nil

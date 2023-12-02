@@ -13,4 +13,15 @@ function M.getData(filepath)
     return data
 end
 
+function M.split(str, sep)
+    local t = {}
+    if sep == nil then
+        sep = '%s'
+    end
+    for s in string.gmatch(str, '[^' .. sep .. ']+') do
+        table.insert(t, s)
+    end
+    return t
+end
+
 return M
