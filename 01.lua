@@ -1,4 +1,4 @@
-local utils = require('utils')
+local aoc = require('aoc')
 local dataPath = './inputs/01.txt'
 
 local function isDigit(char)
@@ -48,6 +48,6 @@ local function partB(data)
     return partA(data)
 end
 
-local data = utils.getData(dataPath)
+local data = aoc.getData(dataPath)
 print('Part A: ' .. partA(data))
 print('Part B: ' .. partB(data))

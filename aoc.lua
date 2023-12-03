@@ -24,4 +24,16 @@ function M.split(str, sep)
     return t
 end
 
+function string.split(str, sep)
+    return M.split(str, sep)
+end
+
+function M.isDigit(char)
+    return char:match('%d') ~= nil
+end
+
+function string.isDigit(char)
+    return M.isDigit(char)
+end
+
 return M

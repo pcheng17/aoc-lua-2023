@@ -1,9 +1,9 @@
-local utils = require('utils')
+local aoc = require('aoc')
 local dataPath = './inputs/02.txt'
 
 
 local function partA(data)
-    local split = utils.split
+    local split = aoc.split
     local maxs = { red = 12, green = 13, blue = 14}
     local total = 0
 
@@ -32,7 +32,7 @@ local function partA(data)
 end
 
 local function partB(data)
-    local split = utils.split
+    local split = aoc.split
     local total = 0
 
     for _, line in ipairs(data) do
@@ -43,7 +43,7 @@ local function partB(data)
 
         for _, game in ipairs(games) do
             for _, draw in ipairs(split(game, ',')) do
-                local balls = utils.split(draw)
+                local balls = aoc.split(draw)
                 if tonumber(balls[1]) > mins[balls[2]] then
                     mins[balls[2]] = tonumber(balls[1])
                 end
@@ -55,6 +55,6 @@ local function partB(data)
     return total
 end
 
-local data = utils.getData(dataPath)
+local data = aoc.getData(dataPath)
 print('Part A: ' .. partA(data))
 print('Part B: ' .. partB(data))
