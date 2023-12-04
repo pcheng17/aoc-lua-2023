@@ -1,5 +1,4 @@
 local aoc = require('aoc')
-local dataPath = './inputs/04.txt'
 
 local function partA(data)
     local total = 0
@@ -31,10 +30,10 @@ local function partB(data)
 
     for i, line in ipairs(data) do
         cards[i] = cards[i] + 1
-        local tmpA = line:split(':')
-        local tmpB = tmpA[2]:split('|')
-        local winning = tmpB[1]:split()
-        local mine = tmpB[2]:split()
+        local _, right = table.unpack(line:split(':'))
+        local a, b = table.unpack(right:split('|'))
+        local winning = a:split()
+        local mine = b:split()
         local matches = 0
         for _, x in ipairs(mine) do
             for _, y in ipairs(winning) do
@@ -55,6 +54,6 @@ local function partB(data)
     return total
 end
 
-local data = aoc.getData(dataPath)
+local data = aoc.getInput('./inputs/04.txt')
 print('Part A: ' .. partA(data))
 print('Part B: ' .. partB(data))

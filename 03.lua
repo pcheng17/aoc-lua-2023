@@ -1,5 +1,4 @@
 local aoc = require('aoc')
-local dataPath = './inputs/03.txt'
 
 local function isSymbol(c)
     return not aoc.isDigit(c) and c ~= '.'
@@ -86,6 +85,6 @@ local function partB(data)
     return total
 end
 
-local data = aoc.getData(dataPath)
+local data = aoc.getInput('./inputs/03.txt')
 print('Part A: ' .. partA(data))
 print('Part B: ' .. partB(data))

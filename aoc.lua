@@ -1,6 +1,6 @@
 local M = {}
 
-function M.getData(filepath)
+function M.getInput(filepath)
     local file = io.open(filepath, 'r')
     local data = {}
     if not file then

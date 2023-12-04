@@ -1,6 +1,4 @@
 local aoc = require('aoc')
-local dataPath = './inputs/02.txt'
-
 
 local function partA(data)
     local split = aoc.split
@@ -55,6 +53,6 @@ local function partB(data)
     return total
 end
 
-local data = aoc.getData(dataPath)
+local data = aoc.getInput('./inputs/02.txt')
 print('Part A: ' .. partA(data))
 print('Part B: ' .. partB(data))
