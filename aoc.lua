@@ -36,8 +36,8 @@ function string.isDigit(char)
     return M.isDigit(char)
 end
 
--- Additional table methods
-
+-- Creating a table using `new` allows me to invoke table methods on the table 
+-- instance directly, i.e., instead of doing `table.unpack(t)`, I can do `t:unpack()`.
 table.new = function(s)
     if s == nil then
         local t = {}
