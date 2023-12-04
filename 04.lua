@@ -3,10 +3,10 @@ local aoc = require('aoc')
 local function partA(data)
     local total = 0
     for _, line in ipairs(data) do
-        local tmpA = line:split(':')
-        local tmpB = tmpA[2]:split('|')
-        local winning = tmpB[1]:split()
-        local mine = tmpB[2]:split()
+        local _, right = line:split(':'):unpack()
+        local a, b = right:split('|'):unpack()
+        local winning = a:split()
+        local mine = b:split()
         local matches = 0
         for _, x in ipairs(mine) do
             for _, y in ipairs(winning) do
@@ -30,8 +30,8 @@ local function partB(data)
 
     for i, line in ipairs(data) do
         cards[i] = cards[i] + 1
-        local _, right = table.unpack(line:split(':'))
-        local a, b = table.unpack(right:split('|'))
+        local _, right = line:split(':'):unpack()
+        local a, b = right:split('|'):unpack()
         local winning = a:split()
         local mine = b:split()
         local matches = 0

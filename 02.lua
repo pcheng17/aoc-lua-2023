@@ -6,9 +6,9 @@ local function partA(data)
     local total = 0
 
     for _, line in ipairs(data) do
-        local parts = split(line, ':')
-        local gameID = split(parts[1])[2]
-        local games = split(parts[2], ';')
+        local left, right = split(line, ':'):unpack()
+        local gameID = tonumber(split(left)[2])
+        local games = split(right, ';')
         local possible = true
 
         for _, game in ipairs(games) do
@@ -23,7 +23,7 @@ local function partA(data)
         end
 
         if possible then
-            total = total + tonumber(gameID)
+            total = total + gameID
         end
     end
     return total
@@ -36,8 +36,8 @@ local function partB(data)
     for _, line in ipairs(data) do
         local mins = { red = 0, green = 0, blue = 0 }
 
-        local parts = split(line, ':')
-        local games = split(parts[2], ';')
+        local _, right = split(line, ':'):unpack()
+        local games = split(right, ';')
 
         for _, game in ipairs(games) do
             for _, draw in ipairs(split(game, ',')) do

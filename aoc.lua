@@ -14,7 +14,7 @@ function M.getInput(filepath)
 end
 
 function M.split(str, sep)
-    local t = {}
+    local t = table.new()
     if sep == nil then
         sep = '%s'
     end
@@ -34,6 +34,17 @@ end
 
 function string.isDigit(char)
     return M.isDigit(char)
+end
+
+-- Additional table methods
+
+table.new = function(s)
+    if s == nil then
+        local t = {}
+        local mt = { __index = table }
+        setmetatable(t, mt)
+        return t
+    end
 end
 
 return M
