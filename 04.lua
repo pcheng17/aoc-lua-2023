@@ -1,4 +1,5 @@
-local aoc = require('aoc')
+local aoc = require('libs.aoc')
+local func = require('libs.functional')
 
 local function partA(data)
     local total = 0
@@ -57,3 +58,19 @@ end
 local data = aoc.getInput('./inputs/04.txt')
 print('Part A: ' .. partA(data))
 print('Part B: ' .. partB(data))
+
+-- local function sum(x, ...)
+--     if x == nil then return 0 end
+--     return x + sum(...)
+-- end
+
+-- local function prod(x, ...)
+--     if x == nil then return 1 end
+--     return x * prod(...)
+-- end
+
+local s = '5,6,7,8,9,10'
+-- print(sum(s:split(','):unpack()))
+-- print(prod(s:split(','):unpack()))
+
+print(func.sum({1, 2, {3, 4}}, s:split(','):unpack()))

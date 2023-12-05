@@ -1,4 +1,4 @@
-local aoc = require('aoc')
+local aoc = require('libs.aoc')
 
 local function partA(data)
     local split = aoc.split

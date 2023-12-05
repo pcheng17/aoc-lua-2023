@@ -1,4 +1,4 @@
-local aoc = require('aoc')
+local aoc = require('libs.aoc')
 
 local function isSymbol(c)
     return not aoc.isDigit(c) and c ~= '.'

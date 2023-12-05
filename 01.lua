@@ -1,4 +1,4 @@
-local aoc = require('aoc')
+local aoc = require('libs.aoc')
 
 local function isDigit(char)
     return char:match('%d') ~= nil
