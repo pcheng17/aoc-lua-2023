@@ -1,5 +1,4 @@
 local aoc = require('libs.aoc')
-local func = require('libs.functional')
 
 local function partA(data)
     local total = 0
