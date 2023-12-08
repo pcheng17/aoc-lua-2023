@@ -5,18 +5,19 @@ local function isDigit(char)
 end
 
 local function partA(data)
+    local lines = data:split('\n')
     local total = 0
-    for i = 1, #data do
-        for j = 1, #data[i] do
-            local c = data[i]:sub(j, j)
+    for i = 1, #lines do
+        for j = 1, #lines[i] do
+            local c = lines[i]:sub(j, j)
             if isDigit(c) then
                 total = total + 10 * tonumber(c)
                 break
             end
         end
 
-        for j = #data[i], 1, -1 do
-            local c = data[i]:sub(j, j)
+        for j = #lines[i], 1, -1 do
+            local c = lines[i]:sub(j, j)
             if isDigit(c) then
                 total = total + tonumber(c)
                 break
@@ -27,6 +28,7 @@ local function partA(data)
 end
 
 local function partB(data)
+    local lines = data:split('\n')
     local replacements = {}
     replacements['one'] = 'o1e'
     replacements['two'] = 't2o'
@@ -38,9 +40,9 @@ local function partB(data)
     replacements['eight'] = 'e8t'
     replacements['nine'] = 'n9e'
 
-    for i = 1, #data do
+    for i = 1, #lines do
         for k, v in pairs(replacements) do
-            data[i] = data[i]:gsub(k, v)
+            lines[i] = lines[i]:gsub(k, v)
         end
     end
 

@@ -1,16 +1,10 @@
 local M = {}
 
 function M.getInput(filepath)
-    local file = io.open(filepath, 'r')
-    local data = {}
-    if not file then
-        return data
-    end
-    for line in file:lines() do
-        table.insert(data, line)
-    end
-    file:close()
-    return data
+    local f = assert(io.open(filepath, 'rb'))
+    local content = f:read('*all')
+    f:close()
+    return content
 end
 
 function M.split(str, sep)
@@ -24,12 +18,16 @@ function M.split(str, sep)
     return t
 end
 
-function string.split(str, sep)
-    return M.split(str, sep)
-end
-
 function M.isDigit(char)
     return char:match('%d') ~= nil
+end
+
+function string.startsWith(str, prefix)
+    return str:find('^' .. prefix) ~= nil
+end
+
+function string.split(str, sep)
+    return M.split(str, sep)
 end
 
 function string.isDigit(char)

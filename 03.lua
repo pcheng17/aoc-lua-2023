@@ -32,16 +32,17 @@ local function findNumbers(data)
 end
 
 local function partA(data)
-    local rows = #data
-    local cols = #(data[1])
-    local numbers = findNumbers(data)
+    local lines = aoc.split(data, '\n')
+    local rows = #lines
+    local cols = #(lines[1])
+    local numbers = findNumbers(lines)
 
     local total = 0
     for _, n in ipairs(numbers) do
         for ii = n.row - 1, n.row + 1 do
             for jj = n.start - 1, n.stop + 1 do
                 if 1 <= ii and ii <= rows and 1 <= jj and jj <= cols then
-                    if isSymbol(data[ii]:sub(jj, jj)) then
+                    if isSymbol(lines[ii]:sub(jj, jj)) then
                         total = total + n.number
                         goto included
                     end
@@ -54,16 +55,17 @@ local function partA(data)
 end
 
 local function partB(data)
-    local rows = #data
-    local cols = #(data[1])
-    local numbers = findNumbers(data)
+    local lines = aoc.split(data, '\n')
+    local rows = #lines
+    local cols = #(lines[1])
+    local numbers = findNumbers(lines)
     
     local gearNeighbors = {}
     for _, n in ipairs(numbers) do
         for ii = n.row - 1, n.row + 1 do
             for jj = n.start - 1, n.stop + 1 do
                 if 1 <= ii and ii <= rows and 1 <= jj and jj <= cols then
-                    if isGear(data[ii]:sub(jj, jj)) then
+                    if isGear(lines[ii]:sub(jj, jj)) then
                         local flatIdx = ii * cols + jj
                         if gearNeighbors[flatIdx] ~= nil then
                             gearNeighbors[flatIdx][#(gearNeighbors[flatIdx])+1] = n.number

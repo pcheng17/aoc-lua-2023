@@ -1,11 +1,12 @@
 local aoc = require('libs.aoc')
 
 local function partA(data)
+    local lines = data:split('\n')
     local split = aoc.split
     local maxs = { red = 12, green = 13, blue = 14}
     local total = 0
 
-    for _, line in ipairs(data) do
+    for _, line in ipairs(lines) do
         local left, right = split(line, ':'):unpack()
         local gameID = tonumber(split(left)[2])
         local games = split(right, ';')
@@ -30,10 +31,11 @@ local function partA(data)
 end
 
 local function partB(data)
+    local lines = data:split('\n')
     local split = aoc.split
     local total = 0
 
-    for _, line in ipairs(data) do
+    for _, line in ipairs(lines) do
         local mins = { red = 0, green = 0, blue = 0 }
 
         local _, right = split(line, ':'):unpack()

@@ -1,8 +1,9 @@
 local aoc = require('libs.aoc')
 
 local function partA(data)
+    local lines = aoc.split(data, '\n')
     local total = 0
-    for _, line in ipairs(data) do
+    for _, line in ipairs(lines) do
         local _, right = line:split(':'):unpack()
         local a, b = right:split('|'):unpack()
         local winning = a:split()
@@ -23,12 +24,13 @@ local function partA(data)
 end
 
 local function partB(data)
+    local lines = aoc.split(data, '\n')
     local cards = {}
-    for i = 1, #data do
+    for i = 1, #lines do
         cards[i] = 0
     end
 
-    for i, line in ipairs(data) do
+    for i, line in ipairs(lines) do
         cards[i] = cards[i] + 1
         local _, right = line:split(':'):unpack()
         local a, b = right:split('|'):unpack()
@@ -42,7 +44,7 @@ local function partB(data)
                 end
             end
         end
-        for j = i + 1, math.min(i + matches, #data) do
+        for j = i + 1, math.min(i + matches, #lines) do
             cards[j] = cards[j] + cards[i]
         end
     end
